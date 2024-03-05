@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class ProjectDTO {
     private int id_project;
-    private  String name;
+    private  String name;//
     private  String description;
 
     private List<String> images;

@@ -28,6 +28,8 @@ public class SecurityConfiguration {
                             .requestMatchers("/api/auth/**").permitAll()
                             .requestMatchers(HttpMethod.GET,"/api/**").permitAll()
                             .requestMatchers(HttpMethod.POST,"/api/**").hasAuthority("Admin")
+                            .requestMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("Admin")
+
                             .anyRequest().authenticated()
                     )
 

@@ -27,12 +27,12 @@ public class AuthService {
                 )
         );
         User user=this.userRepository.findByEmail(logInRequest.getUserEmail()).orElseThrow(()->new UsernameNotFoundException("user not found")) ;
-        return CostumeResponse.builder().token(jwtService.generateToken(user)).build();
+        return CostumeResponse.builder().token(jwtService.generateToken(user)).role(user.getRole()).build();
     }
     public CostumeResponse signUp(@RequestBody User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
-        return CostumeResponse.builder().token(jwtService.generateToken(user)).build();
+        return CostumeResponse.builder().token(jwtService.generateToken(user)).role(user.getRole()).build();
     }
 }

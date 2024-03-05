@@ -1,0 +1,7 @@
+<div class="add-field">
+    <h1>Add a Field</h1>
+    <form [formGroup]="addFieldForm" (ngSubmit)="addField()">
+        <input type="text" formControlName="FieldName">
+        <input type="submit" value="Add">
+    </form>
+</div>

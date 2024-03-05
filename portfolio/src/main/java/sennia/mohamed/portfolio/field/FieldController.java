@@ -7,8 +7,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(
+        origins = {
+                "http://localhost:4200",
+
+        },
+        methods = {
+                RequestMethod.OPTIONS,
+                RequestMethod.GET,
+                RequestMethod.PUT,
+                RequestMethod.DELETE,
+                RequestMethod.POST
+        })
 @RestController
 @RequestMapping("api/Field")
+
 public class FieldController {
     private FieldService fieldService;
     @Autowired
@@ -18,6 +31,7 @@ public class FieldController {
     }
         @PostMapping("/addField")
     public void addField(@RequestBody FieldDTO fieldDTO){
+        System.out.println(fieldDTO);
     this.fieldService.addField(fieldDTO);
     }
     @GetMapping("/getFields")
