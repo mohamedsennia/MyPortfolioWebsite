@@ -49,7 +49,7 @@ public class TechnologieController {
             return   new ResponseEntity<>(HttpStatus.NOT_FOUND);
        }
     }
-    @DeleteMapping("/deleteTechnologie")
+        @DeleteMapping("/deleteTechnologie")
     public void deleteTechnologie(@RequestBody TechnologieDTO technologieDTO){
         this.technologieService.deleteTechnologie(technologieDTO);
     }

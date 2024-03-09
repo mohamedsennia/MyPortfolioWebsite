@@ -1,23 +1,23 @@
 export class Technologie{
-    constructor(private _id: number,private _name: string,private _icon: string){}
+    constructor(private id_technologie: number,private name: string,private icon: string){}
 
-    public get icon(): string {
-        return this._icon;
+    public get _icon(): string {
+        return this.icon;
     }
-    public set icon(value: string) {
-        this._icon = value;
+    public set _icon(value: string) {
+        this.icon = value;
     }
-    public get name(): string {
-        return this._name;
+    public get _name(): string {
+        return this.name;
     }
-    public set name(value: string) {
-        this._name = value;
+    public set _name(value: string) {
+        this.name = value;
     }
     public get id(): number {
-        return this._id;
+        return this.id_technologie;
     }
     public set id(value: number) {
-        this._id = value;
+        this.id_technologie = value;
     }
 
 }
