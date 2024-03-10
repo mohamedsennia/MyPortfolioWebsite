@@ -1,40 +1,40 @@
 export class Education{
-    constructor(private _id: number,private _degree: string,private _school: string,private _startDate: Date,private _endDate: Date,private _description: string){}
+    constructor(private education_id: number,private degree: string,private school: string,private startDate: Date,private endDate: Date,private description: string){}
 
-    public get description(): string {
-        return this._description;
+    public get _description(): string {
+        return this.description;
     }
-    public set description(value: string) {
-        this._description = value;
+    public set _description(value: string) {
+        this.description = value;
     }
-    public get endDate(): Date {
-        return this._endDate;
+    public get _endDate(): Date {
+        return this.endDate;
     }
-    public set endDate(value: Date) {
-        this._endDate = value;
+    public set _endDate(value: Date) {
+        this.endDate = value;
     }
-    public get startDate(): Date {
-        return this._startDate;
+    public get _startDate(): Date {
+        return this.startDate;
     }
-    public set startDate(value: Date) {
-        this._startDate = value;
+    public set _startDate(value: Date) {
+        this.startDate = value;
     }
-    public get school(): string {
-        return this._school;
+    public get _school(): string {
+        return this.school;
     }
-    public set school(value: string) {
-        this._school = value;
+    public set _school(value: string) {
+        this.school = value;
     }
-    public get degree(): string {
-        return this._degree;
+    public get _degree(): string {
+        return this.degree;
     }
-    public set degree(value: string) {
-        this._degree = value;
+    public set _degree(value: string) {
+        this.degree = value;
     }
     public get id(): number {
-        return this._id;
+        return this.education_id;
     }
     public set id(value: number) {
-        this._id = value;
+        this.education_id = value;
     }
 }

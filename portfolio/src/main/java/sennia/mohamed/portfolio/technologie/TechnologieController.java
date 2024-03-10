@@ -28,8 +28,8 @@ public class TechnologieController {
         this.technologieService=technologieService;
     }
     @PostMapping("/addTechnologie")
-    public void addTechnologie(@RequestBody TechnologieDTO technologieDTO){
-        this.technologieService.addTechnologie(technologieDTO);
+    public int addTechnologie(@RequestBody TechnologieDTO technologieDTO){
+       return this.technologieService.addTechnologie(technologieDTO);
     }
     @PutMapping("/updateTechnologie")
     public  void updateTechnologie(@RequestBody TechnologieDTO technologieDTO){

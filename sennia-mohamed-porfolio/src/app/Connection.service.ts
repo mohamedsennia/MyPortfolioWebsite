@@ -72,7 +72,7 @@ getTechnologies(){
 addTechnologie(technologie:Technologie){
     var headers_object = new HttpHeaders().set('Content-Type', 'application/json')
     .set('Authorization', `Bearer `+this.user.token);
-    return this.httpClient.post(this.link+"/Technologies/addTechnologie",technologie,{headers:headers_object})
+    return this.httpClient.post<number>(this.link+"/Technologies/addTechnologie",technologie,{headers:headers_object})
 }
 getTechnologieById(id: number) {
     var headers_object = new HttpHeaders().set('Content-Type', 'application/json')

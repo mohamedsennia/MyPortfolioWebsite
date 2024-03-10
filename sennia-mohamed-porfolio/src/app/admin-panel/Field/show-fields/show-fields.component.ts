@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { ConnectionService } from 'src/app/Connection.service';
+import { Observable, Subscription } from 'rxjs';
+
 import { FieldSerivce } from 'src/app/Field/Field.Service';
 import { Field } from 'src/app/Field/Field.model';
 
@@ -14,25 +14,28 @@ export class ShowFieldsComponent implements OnInit,OnDestroy{
 
   fields:Field[]
  private connectionSubsecribtions:Subscription[]
-constructor( private fieldService:FieldSerivce,private connectionService:ConnectionService,private router:Router){
+constructor( private fieldService:FieldSerivce,private router:Router){
 this.fields=[]
 this.connectionSubsecribtions=[]
 }
 
 ngOnInit(): void {
- this.connectionSubsecribtions.push (  this.connectionService.getFields().subscribe(param=>{
-      this.fields=param
-      this.fieldService.fields=param
 
-    }))
+    if(this.fieldService.getFields()instanceof Observable){
+      this.connectionSubsecribtions.push ( ( this.fieldService.getFields() as Observable<any[]>).subscribe(param=>{
+        this.fields=param
+       
+  
+      }))
+    }else{this.fields=this.fieldService.getFields() as Field[]}
 }
 edit(id:number){
 this.router.navigate(["admin-panel/fields/editField/"+id])
 }
 delete(field: Field) {
   if(window.confirm("Are you sure you want to delete this field")){
-  this.connectionSubsecribtions.push (this.connectionService.deleteField(field).subscribe((param)=>{this.fieldService.fields.splice(this.fieldService.fields.indexOf(field));
-  this.fields=this.fieldService.fields
+  this.connectionSubsecribtions.push (this.fieldService.deleteField(field).subscribe((param)=>{
+  this.fields=param
   }))}
   }
 ngOnDestroy(): void {

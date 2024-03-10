@@ -17,8 +17,8 @@ public class TechnologieService {
      this.mapper=mapper;
 
  }
- public void addTechnologie(TechnologieDTO technologie){
-        this.technologieRepository.save(this.mapper.toTech(technologie));
+ public int addTechnologie(TechnologieDTO technologie){
+     return this.technologieRepository.save(this.mapper.toTech(technologie)).getId_technologie();
  }
 public List<TechnologieDTO> getTechnologies(){
       return   this.technologieRepository.findAll().stream().map(mapper::toTechDto).collect(Collectors.toList());

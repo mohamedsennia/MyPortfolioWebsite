@@ -6,6 +6,7 @@ import { ConnectionService } from 'src/app/Connection.service';
 import { FieldSerivce } from 'src/app/Field/Field.Service';
 import { Field } from 'src/app/Field/Field.model';
 import { Technologie } from 'src/app/Technologie/Technologie.model';
+import { TechnologieService } from 'src/app/Technologie/Technologie.service';
 
 @Component({
   selector: 'app-add-technologie',
@@ -15,7 +16,7 @@ import { Technologie } from 'src/app/Technologie/Technologie.model';
 export class AddTechnologieComponent implements OnInit, OnDestroy{
   public addTechnologieForm:FormGroup;
   private subscriptions:Subscription[];
-  constructor(private connectionService:ConnectionService,private router:Router){
+  constructor(private technologieService:TechnologieService,private router:Router){
   this.subscriptions=[];
   }
  
@@ -27,12 +28,11 @@ export class AddTechnologieComponent implements OnInit, OnDestroy{
     }
     addField(){
      if(this.addTechnologieForm.valid){//console.log()
-      
-      this.subscriptions.push( this.connectionService.addTechnologie(new Technologie(null,this.addTechnologieForm.value["TechName"],this.addTechnologieForm.value["TechIcon"])).subscribe((param)=>{
-
-      }))
+      this.technologieService.addTechnologie(new Technologie(null,this.addTechnologieForm.value["TechName"],this.addTechnologieForm.value["TechIcon"]))
       window.alert("Technologie add successfully")
-      this.router.navigate(["/admin-panel/technologies/1"])
+        this.router.navigate(["/admin-panel/technologies/1"])
+
+
      }
     }
     ngOnDestroy(): void {

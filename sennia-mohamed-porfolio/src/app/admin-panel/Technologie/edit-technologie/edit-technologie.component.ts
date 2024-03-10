@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectionService } from 'src/app/Connection.service';
 import { Field } from 'src/app/Field/Field.model';
 import { Technologie } from 'src/app/Technologie/Technologie.model';
+import { TechnologieService } from 'src/app/Technologie/Technologie.service';
 
 @Component({
   selector: 'app-edit-technologie',
@@ -13,7 +14,7 @@ import { Technologie } from 'src/app/Technologie/Technologie.model';
 export class EditTechnologieComponent {
   public editTechForm:FormGroup;
     public technologie:Technologie
-  constructor(private connectionService:ConnectionService,private activatedRoute:ActivatedRoute,private router:Router){
+  constructor(private technologieService:TechnologieService,private activatedRoute:ActivatedRoute,private router:Router){
   this.technologie=new Technologie(0,"","")
   }
     ngOnInit(): void {
@@ -23,7 +24,7 @@ export class EditTechnologieComponent {
         
       })
       this.activatedRoute.params.subscribe(params=>{
-      this.connectionService.getTechnologieById(+params["id"]).subscribe(param=>{
+      this.technologieService.getTechnologieById(+params["id"]).subscribe(param=>{
           this.technologie=param
           
           this.editTechForm.patchValue({TechName:this.technologie._name,
@@ -34,13 +35,13 @@ export class EditTechnologieComponent {
     }
     editTechnologie(){
     if(this.editTechForm.valid){//console.log()
+      let prevTech=JSON.parse(JSON.stringify(this.technologie))
       this.technologie._name=this.editTechForm.value['TechName']
     this.technologie._icon=this.editTechForm.value['TechIcon']
  
-      this.connectionService.addTechnologie(this.technologie).subscribe((param)=>{
-        window.alert("Field edited successfully")
+      this.technologieService.editTechnologie(this.technologie)
+      window.alert("Field edited successfully")
         this.router.navigate(["/admin-panel/technologies/1"])
-
-      })     }//fa-brands fa-react fa-2xl
+    }//fa-brands fa-react fa-2xl
     }
 }
