@@ -30,9 +30,9 @@ public class FieldController {
         this.fieldService = fieldService;
     }
         @PostMapping("/addField")
-    public void addField(@RequestBody FieldDTO fieldDTO){
-        System.out.println(fieldDTO);
-    this.fieldService.addField(fieldDTO);
+    public int addField(@RequestBody FieldDTO fieldDTO){
+
+   return this.fieldService.addField(fieldDTO);
     }
     @GetMapping("/getFields")
     public List<FieldDTO> getFields(){

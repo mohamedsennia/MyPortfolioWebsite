@@ -28,8 +28,8 @@ public class ExperienceController {
         this.experienceService = experienceService;
     }
     @PostMapping("/addExperience")
-    public void addExperience(@RequestBody ExperienceDTO experienceDTO){
-    this.experienceService.addExperience(experienceDTO);
+    public int addExperience(@RequestBody ExperienceDTO experienceDTO){
+   return this.experienceService.addExperience(experienceDTO);
     }
     @GetMapping("/getExperiences")
     public List<ExperienceDTO> getExperiences() {
@@ -46,7 +46,8 @@ public class ExperienceController {
 
     }
     @DeleteMapping("/deleteExperience")
-    public void deleteExperience(ExperienceDTO experienceDTO){
-    this.experienceService.deleteExperience(experienceDTO);
+    public void deleteExperience(@RequestBody  ExperienceDTO experienceDTO){
+
+    experienceService.deleteExperience(experienceDTO);
     }
 }

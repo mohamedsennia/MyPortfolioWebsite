@@ -14,8 +14,8 @@ public class EducationSerivce {
     public EducationSerivce(EducationRepository educationRepository) {
         this.educationRepository = educationRepository;
     }
-    public void addEducation(Education education) {
-        this.educationRepository.save(education);
+    public int addEducation(Education education) {
+      return   (this.educationRepository.save(education)).getEducation_id();
     }
     public List<Education> getEducations(){
       return   this.educationRepository.findAll();

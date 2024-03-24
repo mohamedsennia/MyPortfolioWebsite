@@ -31,12 +31,12 @@ private Mapper mapper;
         this.fieldService=fieldService;
         this.technologieService=technologieService;
     }
-    public  void addProject(ProjectDTO projectDTO){
+    public  int addProject(ProjectDTO projectDTO){
    Project project=     this.mapper.toProject(projectDTO);
 
         project.setExperience(mapper.toExp(this.experienceService.getExperience(projectDTO.getIdExperience())));
 
-    this.projectRepository.save(project);
+  return this.projectRepository.save(project).getId_project();
     }
     public List<ProjectDTO> getProjects(){
     return this.projectRepository.findAll().stream().map(mapper::toProjectDto).collect(Collectors.toList());

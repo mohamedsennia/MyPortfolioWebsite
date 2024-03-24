@@ -1,1 +1,13 @@
-<p>add-experience works!</p>
+<div class="add-experience">
+    <h1>Add an Experience</h1>
+    <form [formGroup]="addExperienceForm" (ngSubmit)="addEducation()">
+       <label for="">Role</label> <input type="text" formControlName="Role"><br>
+       <label for="">Company Name</label>  <input type="text" formControlName="Company"><br>
+       <label for="">Start Date</label>    <input type="date" formControlName="startDate"><br>
+       <label  for="">End Date</label>  <input  type="date" formControlName="endDate"><label class="checkbox  ">still going</label><input (click)="toggleStillGoing()" class="checkbox" type="checkbox"><br>
+       
+       <label for="">Descripition</label>   <textarea  formControlName="Descripition" id="" cols="30" rows="10"></textarea><br>
+
+        <input type="submit" value="Add">
+    </form>
+</div>

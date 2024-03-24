@@ -2,47 +2,47 @@ import { Project } from "../Project/Project.model";
 
 export class Experience{
 
-    constructor(private _id: string,private _role: string,private _company: string,private _startDate: Date,private _endDate: Date,private _description: string,private _projects: Project[]){}
-    public get id(): string {
-        return this._id;
+    constructor(private experience_id: number,private role: string,private company: string,private startDate: Date,private endDate: Date,private description: string,private projects: Project[]){}
+    public get _experience_id(): number {
+        return this.experience_id;
     }
-    public set id(value: string) {
-        this._id = value;
+    public set _experience_id(value: number) {
+        this.experience_id = value;
     }
-    public get role(): string {
-        return this._role;
+    public get _role(): string {
+        return this.role;
     }
-    public set role(value: string) {
-        this._role = value;
+    public set _role(value: string) {
+        this.role = value;
     }
-    public get company(): string {
-        return this._company;
+    public get _company(): string {
+        return this.company;
     }
-    public set company(value: string) {
-        this._company = value;
+    public set _company(value: string) {
+        this.company = value;
     }
-    public get startDate(): Date {
-        return this._startDate;
+    public get _startDate(): Date {
+        return this.startDate;
     }
-    public set startDate(value: Date) {
-        this._startDate = value;
+    public set _startDate(value: Date) {
+        this.startDate = value;
     }
-    public get endDate(): Date {
-        return this._endDate;
+    public get _endDate(): Date {
+        return this.endDate;
     }
-    public set endDate(value: Date) {
-        this._endDate = value;
+    public set _endDate(value: Date) {
+        this.endDate = value;
     }
-    public get description(): string {
-        return this._description;
+    public get _description(): string {
+        return this.description;
     }
-    public set description(value: string) {
-        this._description = value;
+    public set _description(value: string) {
+        this.description = value;
     }
-    public get projects(): Project[] {
-        return this._projects;
+    public get _projects(): Project[] {
+        return this.projects;
     }
-    public set projects(value: Project[]) {
-        this._projects = value;
+    public set _projects(value: Project[]) {
+        this.projects = value;
     }
 }

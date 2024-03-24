@@ -1,6 +1,5 @@
 package sennia.mohamed.portfolio.project;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +29,9 @@ public class ProjectController {
         this.projectService = projectService;
     }
     @PostMapping("/addProject")
-    public void addProject(@RequestBody ProjectDTO projectDTO){
-System.out.println("at controller "+projectDTO);
-      this.projectService.addProject(projectDTO);
+    public int addProject(@RequestBody ProjectDTO projectDTO){
+
+    return   this.projectService.addProject(projectDTO);
     }
     @GetMapping("/getProjects")
     public List<ProjectDTO> getProjects(){
@@ -47,6 +46,7 @@ System.out.println("at controller "+projectDTO);
     return this.projectService.filterProjects(filters);
 
     }
+
     @GetMapping("/getProject/{id}")
     public ResponseEntity<ProjectDTO> getProject(@PathVariable int id){
         ProjectDTO projectDTO=this.projectService.getProject(id);

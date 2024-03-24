@@ -2,14 +2,13 @@ package sennia.mohamed.portfolio.experience;
 
 
 
-import sennia.mohamed.portfolio.project.Project;
 import sennia.mohamed.portfolio.project.ProjectDTO;
 
 import java.util.Date;
 import java.util.List;
 
 public class ExperienceDTO {
-    private int experience_id;//
+        private int experience_id;//
 
     private String role;
 
@@ -84,5 +83,17 @@ public class ExperienceDTO {
 
     public void setProjects(List<ProjectDTO> projects) {
         this.projects = projects;
+    }
+
+    @Override
+    public String toString() {
+        return "ExperienceDTO{" +
+                "experience_id=" + experience_id +
+                ", role='" + role + '\'' +
+                ", company='" + company + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

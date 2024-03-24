@@ -29,8 +29,9 @@ public class EducationController {
         this.educationSerivce = educationSerivce;
     }
     @PostMapping("/addEducation")
-    public  void addEducation(@RequestBody Education education){
-    this.educationSerivce.addEducation(education);
+    public  int  addEducation(@RequestBody Education education) {
+
+  return   this.educationSerivce.addEducation(education);
     }
     @GetMapping("/getEducations")
     public List<Education> getEducations(){
@@ -44,7 +45,7 @@ public class EducationController {
     }
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @DeleteMapping("/deletEducation")
+    @DeleteMapping("/deleteEducation")
     public void deleteEducation(@RequestBody Education education){
     this.educationSerivce.deleteEducation(education);
     }

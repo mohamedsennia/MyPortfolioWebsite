@@ -18,8 +18,8 @@ public class ExperienceService {
         this.experienceRepository = experienceRepository;
         this.mapper=mapper;
     }
-    public  void addExperience(ExperienceDTO experienceDTO){
-        this.experienceRepository.save(this.mapper.toExp(experienceDTO));
+    public  int addExperience(ExperienceDTO experienceDTO){
+     return this.experienceRepository.save(this.mapper.toExp(experienceDTO)).getExperience_id();
     }
     public List<ExperienceDTO> getExperiences(){
         return this.experienceRepository.findAll().stream().map(mapper::toExpDto).collect(Collectors.toList());

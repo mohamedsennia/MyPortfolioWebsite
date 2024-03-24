@@ -1,11 +1,15 @@
 package sennia.mohamed.portfolio.education;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 public class Education {
     @Id
     @SequenceGenerator(
@@ -26,4 +30,5 @@ public class Education {
     private Date startDate;
     private Date endDate;
     private  String description;
+
 }

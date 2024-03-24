@@ -1,1 +1,13 @@
-<p>add-education works!</p>
+<div class="add-education">
+    <h1>Add an Education</h1>
+    <form [formGroup]="addEducationForm" (ngSubmit)="addEducation()">
+       <label for="">Degree Name</label> <input type="text" formControlName="DegreeName"><br>
+       <label for="">School Name</label>  <input type="text" formControlName="SchoolName"><br>
+       <label for="">Start Date</label>    <input type="date" formControlName="startDate"><br>
+       <label  for="">End Date</label>  <input  type="date" formControlName="endDate"><label class="checkbox  ">still going</label><input (click)="toggleStillGoing()" class="checkbox" type="checkbox"><br>
+       
+       <label for="">Descripition</label>   <textarea  formControlName="Descripition" id="" cols="30" rows="10"></textarea><br>
+
+        <input type="submit" value="Add">
+    </form>
+</div>

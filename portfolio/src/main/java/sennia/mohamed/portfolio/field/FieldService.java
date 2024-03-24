@@ -18,8 +18,8 @@ public class FieldService {
         this.fieldRepository = fieldRepository;
         this.mapper=mapper;
     }
-    public void addField(FieldDTO fieldDTO){
-        this.fieldRepository.save(this.mapper.toField(fieldDTO));
+    public int addField(FieldDTO fieldDTO){
+     return   this.fieldRepository.save(this.mapper.toField(fieldDTO)).getField_id();
     }
     public List<FieldDTO> getFields(){
       return   this.fieldRepository.findAll().stream().map(mapper::toFieldDto).collect(Collectors.toList());
